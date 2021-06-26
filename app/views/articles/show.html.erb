@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+
+
+<div class="video-player">
+    <%= video_tag @article.video.url, autoplay: false, muted: false, controls: true , :size => "〇〇x〇〇"%>
+</div>
+
+  <div class="container">
+    <% if user_signed_in? %>
+ <%= form_with(model: [@article, @message], local: true) do |f| %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= f.submit "SEND" %>
+        <% end %>
+         <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+         <div class="messages">
+      <h4>＜コメント一覧＞</h4>
+      <% @messages.each do |message| %>
+        <p>
+          <strong><%= link_to message.user.username, "/users/#{@message.user_id}" %>：</strong>
+          <%= message.text %>
+        </p>
+      <% end %>
+      <div class="card-content">
+            <div class="content average-score">
+              <div class="star-rating mb-2">
+              <div class="star-rating-front" style="width: <%= @article.review_score_percentage %>%">★★★★★</div>
+                <div class="star-rating-back">★★★★★</div>
+              </div>
+              <div class="average-score-display ml-3 pt-2">
+               （<%= @article.avg_score %>点<%= @article.reviews.count %>件のレビュー）
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      <%# レビュー機能 %>
+      <div class="card-content">
+        <%= render 'reviews/form', review: @review, article: @article %>
+  </div>
+      <%# レビューここまで %>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

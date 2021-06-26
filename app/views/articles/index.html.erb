@@ -1,0 +1,53 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        トレーニング一覧
+      </h1>
+      <%= link_to "kotikaraka", article_path(:id)  %>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <% @articles.each do |article| %>
+       <div class="column is-7">
+          <div class="card">
+            <div class="card-image ">
+              <figure class="image">            
+                   <%= video_tag article.video.url, autoplay: false, muted: false, controls: true , :size => "600x600"%>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                 <%# <%= image_tag @article, :image, class: 'user-image' %> 
+
+                </div>
+                <div class="media-content">
+                  <div class="title">タイトル：<%= article.title %></div>
+                  <div class="name">ユーザー名前：
+                   <%= link_to article_path(article.id) do %>
+                  <%= article.user.username %></div>
+                <% end %>
+                
+                </div>
+              </div>
+
+              <div class="content">
+                <time><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      <% end %>
+      <%= link_to 'New Article', new_article_path %>
+    </div>
+  </div>
+</section>
