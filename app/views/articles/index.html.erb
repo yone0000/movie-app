@@ -18,7 +18,7 @@
           <div class="card">
             <div class="card-image ">
               <figure class="image">            
-                   <%= video_tag article.video.url, autoplay: false, muted: false, controls: true , :size => "600x600"%>
+                   <%= video_tag article.video.url, autoplay: false, muted: false, controls: true , :size => "500x500"%>
               </figure>
             </div>
             <div class="card-content">
@@ -29,6 +29,7 @@
                 </div>
                 <div class="media-content">
                   <div class="title">タイトル：<%= article.title %></div>
+                  <td class="detail-value"><strong>部位：</strong><%= article.part.name%></td>
                   <div class="name">ユーザー名前：
                    <%= link_to article_path(article.id) do %>
                   <%= article.user.username %></div>
@@ -50,4 +51,67 @@
       <%= link_to 'New Article', new_article_path %>
     </div>
   </div>
+</section>
+
+<div class="tab-panel">
+  <!--タブ-->
+  <ul class="tab-group">
+    <li class="tab tab-A is-active">Chest(胸)</li>
+    <li class="tab tab-B">Shoulder(肩)</li>
+    <li class="tab tab-C">Back(背中)</li>  
+    <li class="tab tab-D">Arm(腕)</li> 
+    <li class="tab tab-E">Reg(脚)</li>
+ </ul>
+
+
+  
+  <!--タブを切り替えて表示するコンテンツ-->
+  <div class="panel-group">
+    <div class="panel tab-A is-show">Content-Ada</br>
+   <div class="container">
+    <div class="columns">
+      <% @articles1.each do |article1| %>
+       <div class="column is-7">
+          <div class="card">
+            <div class="card-image ">
+              <div class="image">            
+                   <%= video_tag article1.video.url, autoplay: false, muted: false, controls: true %>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                </div>
+                <div class="media-content">
+                  <div class="title">タイトル：<%= article1.title %></div>
+                  <td class="detail-value"><strong>部位：</strong><%= article1.part.name%></td>
+                  <div class="name">ユーザー名前：
+                   <%= link_to article_path(article1.id) do %>
+                  <%= article1.user.username %></div>
+                <% end %>
+                
+                </div>
+              </div>
+
+              <div class="content">
+                <time><%= article1.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+  </div>
+    <div class="panel tab-B">Content-B</br>
+       <%= @article2 %>
+    </div>
+    <div class="panel tab-C">Content-C
+    </div>
+    <div class="panel tab-D">Content-C
+    </div>
+    <div class="panel tab-E">Content-C
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag 'tabs.js' %>
+
 </section>

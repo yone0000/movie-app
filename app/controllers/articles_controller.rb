@@ -5,14 +5,16 @@ class ArticlesController < ApplicationController
   # GET /articles or /articles.json
   def index
     # @articles = Article.all
-    @articles = Article.includes(:user)
-    
+    @articles = Article.includes(:user).limit(3)
+    @articles1 = Article.where(part_id:2)
+    @article2 = Article.where(part_id:3).pluck(:title, :body, :video)
+
   end
 
   # GET /articles/1 or /articles/1.json
   def show
       @articles = Article.includes(:user) 
-      @user = User.find(params[:id])
+      # @user = User.find(params[:id])
       @message = Message.new
       @messages = @article.messages.includes(:user).order("created_at DESC")
       @review = Review.new
@@ -63,16 +65,24 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1 or /articles/1.json
   def destroy
     @article.destroy
-    respond_to do |format|
-      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to root_path
   end
+
+  def category
+    @article = Article.find_by(part_id: params[:id])
+    @articles = Article.where(part_id: params[:id]).order('created_at DESC')
+  end
+
+  def chest
+    @chests = Article.where(part_id:1) #ここがポイント！categoryのバリューがdogの投稿を取得！
+  end
+
+
 
   private
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:title, :body, :video).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :body, :video, :part_id).merge(user_id: current_user.id)
   end
     # # Use callbacks to share common setup or constraints between actions.
     def set_article

@@ -62,4 +62,7 @@ gem "refile-mini_magick"
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
-gem 'pry-rails'
+# gem 'pry-rails'
+# gem 'jquery-ui-rails'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'

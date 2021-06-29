@@ -48,7 +48,13 @@
   </div>
 </section>
 
+  <section>
+  <% @articles.each do |article| %>
+   <div class="card-image ">
+              <div class="image">            
+                   <%= video_tag article.video.url, autoplay: false, muted: false, controls: true %>
+              </div>
     </div>
-  </div>
-</section>
+    <% end %>
+  </section>
 

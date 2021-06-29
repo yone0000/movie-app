@@ -1,13 +1,16 @@
 class Article < ApplicationRecord
 #     extend ActiveHash::Associations::ActiveRecordExtensions
- 
+extend ActiveHash::Associations::ActiveRecordExtensions
+ belongs_to :part 
+
+
   belongs_to :user
   has_many :messages, dependent: :destroy
   has_many :reviews, dependent: :destroy
     
     mount_uploader :video, VideoUploader
 
-
+    validates :part_id, numericality: { other_than: 1 } 
     validates :title, :body, :video, presence: true
     def avg_score
       unless self.reviews.empty?
