@@ -1,0 +1,189 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+// @charset "utf-8";
+// @import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+// [class*="fontawesome-"]:before {
+//   font-family: 'FontAwesome', sans-serif;
+// }
+
+// body {
+//   background: #2c3338;
+//   color: #606468;
+//   font: 87.5%/1.5em 'Open Sans', sans-serif;
+//   margin: 0;
+// }
+
+// input {
+//   border: none;
+//   font-family: 'Open Sans', Arial, sans-serif;
+//   font-size: 16px;
+//   line-height: 1.5em;
+//   padding: 0;
+//   -webkit-appearance: none;
+// }
+
+// p {
+//   line-height: 1.5em;
+// }
+
+// after { clear: both; }
+
+// #login {
+//   margin: 50px auto;
+//   width: 320px;
+// }
+
+// #login form {
+//   margin: auto;
+//   padding: 22px 22px 22px 22px;
+//   width: 100%;
+//   border-radius: 5px;
+//   background: #282e33;
+//   border-top: 3px solid #434a52;
+//   border-bottom: 3px solid #434a52;
+// }
+
+// #login form span {
+//   background-color: #363b41;
+//   border-radius: 3px 0px 0px 3px;
+//   border-right: 3px solid #434a52;
+//   color: #606468;
+//   display: block;
+//   float: left;
+//   line-height: 50px;
+//   text-align: center;
+//   width: 50px;
+//   height: 50px;
+// }
+
+// #login form input[type="text"] {
+//   background-color: #3b4148;
+//   border-radius: 0px 3px 3px 0px;
+//   color: #a9a9a9;
+//   margin-bottom: 1em;
+//   padding: 0 16px;
+//   width: 235px;
+//   height: 50px;
+// }
+
+// #login form input[type="password"] {
+//   background-color: #3b4148;
+//   border-radius: 0px 3px 3px 0px;
+//   color: #a9a9a9;
+//   margin-bottom: 1em;
+//   padding: 0 16px;
+//   width: 235px;
+//   height: 50px;
+// }
+
+// #login form input[type="submit"] {
+//   background: #b5cd60;
+//   border: 0;
+//   width: 100%;
+//   height: 40px;
+//   border-radius: 3px;
+//   color: white;
+//   cursor: pointer;
+//   transition: background 0.3s ease-in-out;
+// }
+// #login form input[type="submit"]:hover {
+//   background: #16aa56;
+// }
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+// body, html {
+//   // height: 100%;
+// }
+// body {
+//   font-family: 'Open Sans';
+//   font-weight: 100;
+//   // display: flex;
+//   // overflow: hidden;
+// }
+
+// input {
+//   ::-webkit-input-placeholder {
+//      color: rgba(255,255,255,0.7);
+//   }
+//   ::-moz-placeholder {
+//      color: rgba(255,255,255,0.7);  
+//   }
+//   :-ms-input-placeholder {  
+//      color: rgba(255,255,255,0.7);  
+//   }
+//   &:focus {
+//     outline: 0 transparent solid;
+//     ::-webkit-input-placeholder {
+//      color: rgba(0,0,0,0.7);
+//     }
+//     ::-moz-placeholder {
+//        color: rgba(0,0,0,0.7);  
+//     }
+//     :-ms-input-placeholder {  
+//        color: rgba(0,0,0,0.7);  
+//     }
+//   }
+// }
+
+.input {
+  width: 80%;
+  height: 30;
+}
+
+
+
+
+[class*=underlay] {
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+}
+.underlay-photo {
+  animation: hue-rotate 6s infinite;
+  background-image: url(123.jpg);
+  background-size: cover;
+  -webkit-filter: grayscale(30%);
+  z-index: -1;
+}
+.underlay-black {
+  background: rgba(0,0,0,0.7);
+  z-index: -1;
+}
+
+@keyframes hue-rotate {
+  from {
+    -webkit-filter: grayscale(30%) hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: grayscale(30%) hue-rotate(360deg);
+  }
+}
+
+.container-session{
+ padding-top: 78px;
+  width: 100%;
+  height: 100vw;
+}
+
+.column {
+text-align: center;
+margin-top: 30px;
+}
+
+.filed label {
+  width: 80%;
+}
+
+
+.section-registration {
+ padding-top: 78px;
+}

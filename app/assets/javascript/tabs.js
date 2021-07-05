@@ -1,25 +1,3 @@
-// const tabs = document.querySelectorAll(".tabs li a");
-// const contents = document.querySelectorAll(".contents li ");
-
-// console.log(tabs);
-// console.log(contents);
-
-// for (let i = 0; i < tabs.length; i++) {
-// tabs[i].addEventListener("click", function(e) {
-//     e.preventDefault();
-
-//     for (let j = 0; j < tabs.length; j++) {
-//         tabs[j].classList.remove["active"];
-//     }
-//     for (let j = 0; j < contents.length; j++) {
-//         contents[j].classList.remove["active"];
-//     }
-
-//     this.classList.add("active");
-//     contents[i].classList.add("active");
-// });  
-// }
-
 document.addEventListener('DOMContentLoaded', function(){
     // タブに対してクリックイベントを適用
     const tabs = document.getElementsByClassName('tab');
@@ -38,4 +16,4 @@ document.addEventListener('DOMContentLoaded', function(){
       const index = arrayTabs.indexOf(this);
       document.getElementsByClassName('panel')[index].classList.add('is-show');
     };
-  });
+  });r

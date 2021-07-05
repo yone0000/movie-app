@@ -10,8 +10,53 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
 
+
+  <body>
+  <div class="container">
+
+
+<header>
+<div class="container-title">
+<ul class="title1">
+<%= link_to root_path, class: "nav-title1" do %>
+          <h1 class="title1" style="font-family: cursive;">Fitnessgram</h1>
+        <% end %>
+</ul>
+<% if user_signed_in? %>
+
+<ul class="title2">
+    <li class="nav-i">
+     <%= link_to "Fitness覧", articles_path, class: "navbar-item button is-warning is-light" %>
+     </li>
+    <li class="nav-itm3">
+    <%= link_to "My Fitness投稿", new_article_path, class: "navbar-item button is-warning is-light" %>
+    </li>
+           <li class="navbar-item3">
+                <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %>
+          </li>   
+           <li class="navbar-item3">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+          </li> 
+</ul>
+<% else %>
+<ul class="title2">
+    <li class="nav-itm">
+     <%= link_to "Fitness覧", articles_path, class: "navbar-item button is-warning is-light" %>
+     </li>
+       <li class="navbar-item">
+                <%= link_to "Fitnessgram一覧", users_path %>
+            </li>
+            <li class="navbar-item">
+                <%= link_to "ログイン", new_user_session_path %>
+            </li>
+            <li class="navbar-item">
+                <%= link_to "新規登録", new_user_registration_path %>
+            </li> 
+<% end %>
+</ul>
+</div>
+</header>
    <% if flash[:notice] %>
       <div class="notification is-info">
         <p class="notice"><%= notice %></p>
@@ -23,66 +68,41 @@
       </div>
     <% end %>
 
-<nav class="navbar is-warning">
-      <div class="navbar-brand">
-        <%= link_to root_path, class: "navbar-item" do %>
-          <h1 class="title is-4" style="font-family: cursive;">Fitnessgram</h1>
-        <% end %>
-        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
 
-      <% if user_signed_in? %>
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
-          <div class="navbar-item">
-          <%= link_to "Fitness覧", articles_path, class: "navbar-item button is-warning is-light" %>
-          </div>
-          <div class="navbar-item">
-          <%= link_to "My Fitness投稿", new_article_path, class: "navbar-item button is-warning is-light" %>
-          </div>
-
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                <%= link_to "Fitnessgram一覧", users_path, class: " button is-warning is-light" %>
-                </p>
-                <p class="control">
-                <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% else %>
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
-          <div class="navbar-item">
-          </div>
-          <div class="navbar-item">
-          <%= link_to "Fitnessgram一覧", users_path, class: "navbar-item button is-warning is-light" %>
-          </div>
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                  <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
-                </p>
-                <p class="control">
-                  <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-   </nav>
+  
    <%= yield %>
-  </body>
+
+  
+
+<footer>
+      <div class="footer-container">
+        
+          <%# <div class="logo"> %>
+          <div class="logo-item">
+          <p>
+          <%# <span class="icon is-small is-left"> %>
+              <i class="fas fa-plus fa-3x"></i>
+            <%# </span> %>
+           </p>
+          </div>
+           <div class="logo-item">
+            <%= link_to root_path, class: "nav-title1" do %>
+              <h1 class="title1" style="font-family: cursive;">Fitnessgram</h1>
+            <% end %>
+            </div>
+            <div class="logo-item">
+             <p>
+          <%# <span class="icon is-small is-left"> %>
+              <i class="fas fa-search fa-3x"></i>
+            <%# </span> %>
+           </p>
+                </div>
+          <%# <%# </div> %>
+      </div><!-- /inner-block -->
+     <%# </div> %>
+    </footer>
 </html>
+   </div>
+  </body>
+        
+        

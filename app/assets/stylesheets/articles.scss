@@ -34,9 +34,19 @@
     flex-direction: column;
     
   }
+  
+// tab
+.tab-panel {
+ height: 20px;
+
+}
 .tab-group{
   display: flex;
   justify-content: center;
+  margin: 0;
+  background: black;
+  color:white;
+  padding: 10px;
 }
 .tab{
   flex-grow: 1;
@@ -46,15 +56,16 @@
   text-align:center;
   cursor:pointer;
 }
-.panel-group{
-  height:100%;
-  border:solid 1px #CCC;
-  border-top:none;
-  background:#eee;
-}
+// .panel-group{
+//   height:100px;
+//   border:solid 1px #CCC;
+//   border-top:none;
+//   background:#eee;
+// }
 .panel{
   display:none;
 }
+
 .tab.is-active{
   background:#F00;
   color:#FFF;
@@ -63,5 +74,149 @@
 .panel.is-show{
   display:block;
 }
+// tab
+
+// index
+.card-center{
+  position: relative;
+  z-index: 1;
+}
+.container1 {
+  background-image: url(2345.jpg);
+  background-size: cover;
+  width: 100%;
+  background-position:50%;
+  position: relative;
+}
+.container1::after {
+  content: '';
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.container-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.container2 {
+  background-image: url(12345.jpg);
+  background-size: cover;
+  width: 100%;
+  background-position:50%;
+  position: relative;
+  margin-top: 30px;
+  padding-top: 20;
+}
+.container2::after {
+  content: '';
+  // background-color: rgba(0,0,0,.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
 
 
+.card-botom  p {
+  display: block;
+  font-size: 20px;
+}
+.image {
+  text-align: center;
+  // margin: 0 auto;
+  // margin-left: auto;
+  // margin-right: auto;
+}
+.card-botom h1{
+// position: absolute;
+
+}
+
+.rank-left h1{
+margin: 0%;
+}
+
+.box11{
+  padding: 0.5em 1em;
+  margin-left: auto;
+  margin-right: auto;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px rgb(53, 50, 50);
+  border-bottom: solid 5px black;
+  box-shadow: 0 3px 5px rgb(53, 50, 50);
+  width: 500px;
+}
+
+.card-rank{
+  width: 50%;
+  // background: lightblue;
+  // border: 1px solid white;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.image-rank {
+  text-align: center;
+}
+// .container-panel{
+//   display: flex;
+//  flex-wrap: wrap;
+//  width: 100%;
+// }
+
+
+
+// .image-rank {
+//   margin-right: auto;
+//   margin-left: auto;
+// }
+.rank-left {
+
+  margin-left: auto;
+}
+.rank-right {
+  margin-right: auto;
+ 
+//  margin-top: auto;
+//  margin-bottom: 30px;
+}
+.box25{
+  // position: relative;
+  background: #fff0cd;
+  box-shadow: 0px 0px 0px 5px #fff0cd;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+}
+.box25:after{
+  position: absolute;
+  content: '';
+  right: -7px;
+  top: -7px;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: #ffdb88 #fff #ffdb88;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+
+.cantainer2 {
+  background: #000;
+}
+
+// 新規投稿
+.container-post-new {
+  background: white;
+}
+
+
+// 新規投稿終わり

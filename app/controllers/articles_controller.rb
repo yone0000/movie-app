@@ -7,8 +7,10 @@ class ArticlesController < ApplicationController
     # @articles = Article.all
     @articles = Article.includes(:user).limit(3)
     @articles1 = Article.where(part_id:2)
-    @article2 = Article.where(part_id:3).pluck(:title, :body, :video)
-
+    @articles2 = Article.where(part_id:3)
+    @articles3 = Article.where(part_id:4)
+    @articles4 = Article.where(part_id:5)
+    @articles5 = Article.where(part_id:6)
   end
 
   # GET /articles/1 or /articles/1.json

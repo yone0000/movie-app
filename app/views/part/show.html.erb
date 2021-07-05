@@ -1,2 +1,321 @@
 <h1>Part#show</h1>
 <p>Find me in app/views/part/show.html.erb</p>
+
+
+
+         <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-4" style="font-family: cursive;">Fitnessgram</h1>
+        <% end %>
+          <div class="navbar-item">
+          <%= link_to "Fitness覧", articles_path, class: "navbar-item button is-warning is-light" %>
+          </div>  
+          <div class="navbar-item">
+          <%= link_to "My Fitness投稿", new_article_path, class: "navbar-item button is-warning is-light" %>
+          </div>    
+           <div class="navbar-item">
+                <%# <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %> %>
+          </div>   
+           <div class="navbar-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+          </div>     
+           <div class="navbar-item">
+            </div>
+            <div class="navbar-item">
+                <%= link_to "Fitnessgram一覧", users_path %>
+            </div>
+            <div class="navbar-item">
+                <%= link_to "ログイン", new_user_session_path %>
+            </div>
+            <div class="navbar-item">
+                <%= link_to "新規登録", new_user_registration_path %>
+            </div>         
+
+
+
+
+      <% if user_signed_in? %>
+          <div class="navbar-item">
+          <%= link_to "Fitness覧", articles_path, class: "navbar-item button is-warning is-light" %>
+          </div>
+          <div class="navbar-item">
+          <%= link_to "My Fitness投稿", new_article_path, class: "navbar-item button is-warning is-light" %>
+          </div>
+          <div class="navbar-item">
+                <%# <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %> %>
+          </div>   
+           <div class="navbar-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+          </div> 
+      <% else %>
+
+      <% end %>
+
+      //////////////
+        <%# <header>
+  <nav>
+  <div class="container-header">
+  <div class="title1">
+      <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-4" style="font-family: cursive;">Fitnessgram</h1>
+        <% end %>
+  </div>
+
+  <div class="title2">
+   <div class="navbar-item">
+          <%= link_to "Fitness覧", articles_path, class: "navbar-item button is-warning is-light" %>
+          </div>  
+          <div class="navbar-item">
+          <%= link_to "My Fitness投稿", new_article_path, class: "navbar-item button is-warning is-light" %>
+          </div>  
+  <% if user_signed_in? %>
+           <div class="title3">
+        <div class="navbar-item">
+                <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %>
+          </div>   
+           <div class="navbar-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+          </div> 
+  </div>
+    <% else %>
+  <div class="title3">
+       <div class="navbar-item">
+                <%= link_to "Fitnessgram一覧", users_path %>
+            </div>
+            <div class="navbar-item">
+                <%= link_to "ログイン", new_user_session_path %>
+            </div>
+            <div class="navbar-item">
+                <%= link_to "新規登録", new_user_registration_path %>
+            </div> 
+<% end %>
+
+  </div>
+  </div>
+  </nav>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <%# <section> %>
+  <div class="container">
+  <!--タブを切り替えて表示するコンテンツ-->
+  <div class="panel-group">
+      <div class="container3">
+     <div class="panel tab-A">
+        <% @articles1.each do |article1| %>
+          <div class="container">
+        <div class="card-rank">
+         <div class="rank-left">
+            <h1><strong>１位</strong><%= article1.user.username %></h1>
+            <figure class="image-rank">            
+            <%= video_tag article1.video.url, autoplay: false, muted: false, controls: true , :size => "400x400"%>
+            </figure>
+         </div>
+         <div class="rank-right">
+           <div class="box25">
+           <p><strong>タイトル：</strong><%= article1.title %></p>
+           <p class="name"><strong>ユーザー名前:</strong>
+           <%= link_to article_path(article1.id) do %>
+           <%= article1.user.username %></p>
+           <% end %>
+           <p class="content"><strong>投稿日</strong>
+           <time><%= article1.updated_at.strftime("%Y-%m-%d %H:%M") %></time>
+           </p>
+           </div>
+         </div> 
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>  
+    <div class="panel tab-B">
+        <% @articles2.each do |article2| %>
+          <div class="container">
+        <div class="card-rank">
+         <div class="rank-left">
+            <h1><strong>１位</strong><%= article2.user.username %></h1>
+            <figure class="image-rank">            
+            <%= video_tag article2.video.url, autoplay: false, muted: false, controls: true , :size => "400x400"%>
+            </figure>
+         </div>
+         <div class="rank-right">
+           <div class="box25">
+           <p><strong>タイトル：</strong><%= article2.title %></p>
+           <p class="name"><strong>ユーザー名前:</strong>
+           <%= link_to article_path(article2.id) do %>
+           <%= article2.user.username %></p>
+           <% end %>
+           <p class="content"><strong>投稿日</strong>
+           <time><%= article2.updated_at.strftime("%Y-%m-%d %H:%M") %></time>
+           </p>
+           </div>
+         </div> 
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>   
+    <div class="panel tab-C">
+          <div class="container">
+        <% @articles3.each do |article3| %>
+        <div class="card-rank">
+         <div class="rank-left">
+            <h1><strong>１位</strong><%= article3.user.username %></h1>
+            <figure class="image-rank">            
+            <%= video_tag article3.video.url, autoplay: false, muted: false, controls: true , :size => "400x400"%>
+            </figure>
+         </div>
+         <div class="rank-right">
+           <div class="box25">
+           <p><strong>タイトル：</strong><%= article3.title %></p>
+           <p class="name"><strong>ユーザー名前:</strong>
+           <%= link_to article_path(article3.id) do %>
+           <%= article3.user.username %></p>
+           <% end %>
+           <p class="content"><strong>投稿日</strong>
+           <time><%= article3.updated_at.strftime("%Y-%m-%d %H:%M") %></time>
+           </p>
+           </div>
+         </div> 
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+    </div>
+    <div class="panel tab-D">
+          <div class="container">
+        <% @articles4.each do |article4| %>
+        <div class="card-rank">
+         <div class="rank-left">
+            <h1><strong>１位</strong><%= article4.user.username %></h1>
+            <figure class="image-rank">            
+            <%= video_tag article4.video.url, autoplay: false, muted: false, controls: true , :size => "400x400"%>
+            </figure>
+         </div>
+         <div class="rank-right">
+           <div class="box25">
+           <p><strong>タイトル：</strong><%= article4.title %></p>
+           <p class="name"><strong>ユーザー名前:</strong>
+           <%= link_to article_path(article4.id) do %>
+           <%= article.user.username %></p>
+           <% end %>
+           <p class="content"><strong>投稿日</strong>
+           <time><%= article4.updated_at.strftime("%Y-%m-%d %H:%M") %></time>
+           </p>
+           </div>
+         </div> 
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+    </div>
+    <div class="panel tab-E">
+          <div class="container">
+        <% @articles5.each do |article5| %>
+        <div class="card-rank">
+         <div class="rank-left">
+            <h1><strong>１位</strong><%= article5.user.username %></h1>
+            <figure class="image-rank">            
+            <%= video_tag article5.video.url, autoplay: false, muted: false, controls: true , :size => "400x400"%>
+            </figure>
+         </div>
+         <div class="rank-right">
+           <div class="box25">
+           <p><strong>タイトル：</strong><%= article5.title %></p>
+           <p class="name"><strong>ユーザー名前:</strong>
+           <%= link_to article_path(article5.id) do %>
+           <%= article5.user.username %></p>
+           <% end %>
+           <p class="content"><strong>投稿日</strong>
+           <time><%= article5.updated_at.strftime("%Y-%m-%d %H:%M") %></time>
+           </p>
+           </div>
+         </div> 
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+    </div> %>
+  
+</div>
+
+</div> 
+<%# </section> %>
+
+
+
+
+
+
+
+
+
+<%# memo %>
+<section class="section-hero">
+  <div class="hero-body">
+    <div class="container-session">
+      <h1 class="title">
+        ログイン画面
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+<div class="container">
+
+</div>
+</section>
+  <%# <div class="container-session">
+    <div class="columns"> %>
+      <div class="column">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email, class: "label" %>
+            <p class="control has-icons-left">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", class: "input" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <%= f.label :password, class: "label" %>
+            <p class="control has-icons-left">
+              <%= f.password_field :password, autocomplete: "current-password", :placeholder => "password", class: "input" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Log in", class: "button is-success" %>
+          </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      <%# </div>
+    </div> %>
+  </div>
+</section>
+
